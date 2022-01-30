@@ -16,5 +16,34 @@ main{
   padding:2rem;
       background: #202123cf;
     min-height: calc(100vh - 86px);
-    color: #fff;
+}
+.price_part{
+     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.price_part span{
+  font-weight: bold;
+}
+.price_part strike{
+    margin-right: 15px;
+    font-weight: 400;
+    color:red;
+}
+.card-text,.card-title{
+  min-height: 48px;
+}
+.product_list{
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+.current_price{
+  font-size: 1.5rem;
+}
+.cart{
+  font-size: 24px;
+}
+sup {
+    top: -1.5em;
+    right: -2.1em;
+    font-weight: 300;
 }
