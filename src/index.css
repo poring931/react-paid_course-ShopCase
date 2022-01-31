@@ -72,10 +72,21 @@ max-width: 230px;
     background: gray;
  max-height: 95vh;
     overflow-y: scroll;
- transform: translate(-50%, -50%)
-    
+ transform: translate(-50%, -50%);
+    animation:show 500ms ease-in-out;
 }
 
 .close_btn{
   cursor: pointer;
+}
+
+@keyframes show {
+  from {
+    left: 0%;
+    opacity: 0;
+  }
+  top {
+    left:50%;
+    opacity: 1;
+  }
 }
