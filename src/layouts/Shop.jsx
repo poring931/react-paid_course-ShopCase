@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import BasketList from '../components/BasketList';
 import Cart from '../components/Cart';
 import GoodsList from '../components/GoodsList';
 import Preloader from '../components/Preloader';
@@ -10,6 +11,7 @@ const Main = () => {
     const [goods, setGoods] = useState([])
     const [loading, setLoading] = useState(true)
     const [order,setOrder] = useState([])
+    const [isBasketShow, setBasketShow] = useState(false)
 
     useEffect(()=>{
       
@@ -52,17 +54,33 @@ const Main = () => {
         }
      };
 
+     const handleBasketShow = () =>{
+         setBasketShow(!isBasketShow)
+     }
+
+     const removeFromBasket = (itemId) => {
+         console.log('asdasdas');
+         const newOrder = order.filter((el) => el.id !== itemId)
+         console.log(newOrder);
+         setOrder(newOrder)
+     }
+
   return (
     <main>
         <Container>
             <Row className='product_list'>
-                <Cart quantity={order.length}/>               
+                <Cart quantity={order.length} handleBasketShow={handleBasketShow} />               
             </Row>
+               {
+                    isBasketShow && <BasketList order={order} removeFromBasket={removeFromBasket} handleBasketShow={handleBasketShow}/>
+                }
             <Row className='product_list'>
                 
                 {
                     loading ?  <Preloader/> : <GoodsList addToBasket={addToBasket} goods={goods}/>
                 }
+
+             
             </Row>
         </Container>
     </main>

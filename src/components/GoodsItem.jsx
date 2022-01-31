@@ -69,7 +69,7 @@ const GoodsItem = (props) => {
                                     <span className='current_price'>
                                         {
                                             inCartQuantity > 1 ? (
-                                               <sup><small>{price.finalPrice * inCartQuantity}</small></sup>
+                                               <sup><small>{price.finalPrice * inCartQuantity}₽</small></sup>
                                             ) : ''
                                         }
                                         

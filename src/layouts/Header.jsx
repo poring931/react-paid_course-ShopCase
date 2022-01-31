@@ -11,7 +11,7 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Репозиторий</Nav.Link>
+                    <Nav.Link target="blank_" href="https://github.com/poring931/react-paid_course-ShopCase">Репозиторий</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

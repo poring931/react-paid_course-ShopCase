@@ -47,3 +47,35 @@ sup {
     right: -2.1em;
     font-weight: 300;
 }
+
+.basket_list{
+ user-select: none;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin:15px 0;
+       padding:0 2rem;
+}
+.basket_list  .list-group-item{
+max-width: 230px;
+}
+
+.modal_basket{
+  position: fixed;
+    top: 50%;
+    max-width: 90%;
+    left: 50%;
+    width: fit-content;
+    z-index: 2;
+    background: gray;
+ max-height: 95vh;
+    overflow-y: scroll;
+ transform: translate(-50%, -50%)
+    
+}
+
+.close_btn{
+  cursor: pointer;
+}
