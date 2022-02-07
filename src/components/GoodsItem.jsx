@@ -14,7 +14,7 @@ const GoodsItem = (props) => {
 
     } = props;
 
-    const [inCartQuantity, putCart] = useState(0)
+    // const [inCartQuantity, putCart] = useState(0)//пока выпиливаем.нужно менять структуру
 
     const buyHandler = () => {
         //  props.addToBasket([mainId,displayName,granted[0].images.full_background,price.finalPrice],displayDescription)
@@ -26,7 +26,7 @@ const GoodsItem = (props) => {
              price: price.finalPrice,
          })
         
-         putCart(inCartQuantity+1)
+        //  putCart(inCartQuantity+1)
     }
 
   return (
@@ -42,16 +42,17 @@ const GoodsItem = (props) => {
                 <hr />
                  <Card.Text className="price_part">
                         <Button onClick={buyHandler} variant="primary">
+                             Купить <BsCart4/>
                             {
-                                !inCartQuantity ? (
-                                    <>
-                                        Купить <BsCart4/>
-                                    </>
-                                ) : (
-                                    <>
-                                    В корзине {inCartQuantity} <BsCart4/>
-                                    </>
-                                )
+                                // !inCartQuantity ? (//пока выпиливаем.нужно менять структуру
+                                //     <>
+                                        // Купить <BsCart4/>
+                                //     </>
+                                // ) : (
+                                //     <>
+                                    // В корзине {inCartQuantity} <BsCart4/>
+                                //     </>
+                                // )
                             }
                             
                             </Button>
@@ -67,11 +68,11 @@ const GoodsItem = (props) => {
                                 : 
                                 (
                                     <span className='current_price'>
-                                        {
+                                        {/* {
                                             inCartQuantity > 1 ? (
                                                <sup><small>{price.finalPrice * inCartQuantity}₽</small></sup>
                                             ) : ''
-                                        }
+                                        } */}
                                         
                                         {price.finalPrice}₽ 
                                     </span>

@@ -16,14 +16,23 @@ const BasketList = (props) => {
 
   return (
      <div className="modal_basket">
-      <Card.Header className=" bg-black d-flex justify-content-between align-items-center" style={{color:'#fff'}}>Корзина <AiOutlineCloseCircle onClick={handleBasketShow} className='close_btn'/></Card.Header>
+      <Card.Header className=" bg-black d-flex justify-content-between align-items-center" style={{color:'#fff'}}>
+        Корзина <AiOutlineCloseCircle onClick={handleBasketShow} className='close_btn'/>
+      </Card.Header>
       <ListGroup className='basket_list'>
             {
               order.length ? order.map((item)=>(
-                <BasketItem key={item.id} {...item} removeFromBasket={removeFromBasket}/>
+                <BasketItem 
+                  key={item.id} 
+                  {...item} 
+                  removeFromBasket={removeFromBasket}
+                  incrementQuantity={props.incrementQuantity}
+                  decrementQuantity={props.decrementQuantity}  
+                  
+                />
 
               )) : (
-              <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' }}>
                 <Card.Header>Корзина пуста</Card.Header>
             </Card>
               )

@@ -59,20 +59,62 @@ const Main = () => {
      }
 
      const removeFromBasket = (itemId) => {
-         console.log('asdasdas');
          const newOrder = order.filter((el) => el.id !== itemId)
-         console.log(newOrder);
          setOrder(newOrder)
      }
+     
+     const incrementQuantity = (itemId)=>{
+         const newOrder = order.map(el=>{
+             if (el.id === itemId){
+                 const newQuantity = el.quantity + 1;
+
+                 return {
+                     ...el,
+                     quantity: newQuantity
+                 }
+             } else {
+                 return el;
+             }
+         })
+
+         setOrder(newOrder)
+     }
+     const decrementQuantity = (itemId)=>{
+         const newOrder = order.map(el=>{
+             if (el.id === itemId){
+                 const newQuantity = el.quantity - 1;
+                
+                 return {
+                     ...el,
+                     quantity: newQuantity >=0 ? newQuantity :0,
+                 }
+             } else {
+                 return el;
+             }
+         })
+        const newOrderWithOutNull = newOrder.filter((el) => el.quantity !== 0)
+
+         setOrder(newOrderWithOutNull)
+     }
+
+ 
 
   return (
     <main>
+        
         <Container>
             <Row className='product_list'>
                 <Cart quantity={order.length} handleBasketShow={handleBasketShow} />               
             </Row>
                {
-                    isBasketShow && <BasketList order={order} removeFromBasket={removeFromBasket} handleBasketShow={handleBasketShow}/>
+                    isBasketShow && 
+                    <BasketList 
+                        order={order} 
+                        removeFromBasket={removeFromBasket} 
+                        handleBasketShow={handleBasketShow}
+                        decrementQuantity={decrementQuantity}
+                        incrementQuantity={incrementQuantity}
+                    />
                 }
             <Row className='product_list'>
                 

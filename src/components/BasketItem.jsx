@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle, AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
 
 const BasketItem = (props) => {
     const {
@@ -25,6 +25,20 @@ const BasketItem = (props) => {
                 <ListGroup variant="flush">
                 
                     <ListGroup.Item >{price} ₽ x {quantity} = {productPrice} ₽ </ListGroup.Item>
+                </ListGroup>
+                <ListGroup variant="flush">
+                
+                    <ListGroup.Item className='d-flex justify-content-between align-items-center '>
+                        <AiOutlineMinusCircle 
+                            style={{ cursor: 'pointer' }}
+                            onClick={()=>{props.decrementQuantity(id)}}
+                        />
+                        <span>{quantity}</span>
+                        <AiOutlinePlusCircle 
+                            style={{ cursor: 'pointer' }}
+                            onClick={()=>{props.incrementQuantity(id)}}
+                        />
+                    </ListGroup.Item>
                 </ListGroup>
             </Card>
     </ListGroup.Item>

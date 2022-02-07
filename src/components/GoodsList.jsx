@@ -10,7 +10,12 @@ const GoodsList = (props) => {
   return (
     <>
         {goods.map((item) => (
-            <GoodsItem addToBasket={props.addToBasket} key={item.mainId} {...item}/>
+            <GoodsItem 
+             
+              addToBasket={props.addToBasket} 
+              key={item.mainId} 
+              {...item}
+            />
         ))}
     </>
   );
