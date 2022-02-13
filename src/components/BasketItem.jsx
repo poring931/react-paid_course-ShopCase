@@ -1,6 +1,8 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import { AiOutlineCloseCircle, AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
+import { ShopContext } from '../context';
 
 const BasketItem = (props) => {
     const {
@@ -13,6 +15,9 @@ const BasketItem = (props) => {
     } = props;
 
     const productPrice = price * quantity
+
+    const {example} = useContext(ShopContext)
+    console.log(example)
   return (
     <ListGroup.Item>
             <Card>
