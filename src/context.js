@@ -20,9 +20,18 @@ export const ContextProvider = ({children}) => {
         dispatch({type:'REMOVE_FROM_BASKET', payload: {id: itemId}})
     }
 
-    // value.handleBasketShow = () => {
-    //     dispatch({type:'HANDLE_BASKET_SHOW', payload: {id: itemId}})
-    // }
+    value.handleBasketShow = () => {
+        dispatch({type:'TOGGLE_BASKET'})
+    }
+    value.addToBasket = (item) => {
+        dispatch({type:'ADD_TO_BASKET', payload: item})
+    }
+    value.incrementQuantity = (itemId) => {
+        dispatch({type:'INCREMENT_QUANTITY', payload:  {id: itemId}})
+    }
+    value.decrementQuantity = (itemId) => {
+        dispatch({type:'DECREMENT_QUANTITY', payload:  {id: itemId}})
+    }
 
     return <ShopContext.Provider value={value}>
         {children}
