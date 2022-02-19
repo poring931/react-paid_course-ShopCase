@@ -11,13 +11,12 @@ const BasketItem = (props) => {
         image,
         price,
         quantity,
-        removeFromBasket=Function.prototype,
     } = props;
 
     const productPrice = price * quantity
 
-    const {example} = useContext(ShopContext)
-    console.log(example)
+   const {removeFromBasket, incrementQuantity, decrementQuantity} = useContext(ShopContext)
+   
   return (
     <ListGroup.Item>
             <Card>
@@ -36,12 +35,12 @@ const BasketItem = (props) => {
                     <ListGroup.Item className='d-flex justify-content-between align-items-center '>
                         <AiOutlineMinusCircle 
                             style={{ cursor: 'pointer' }}
-                            onClick={()=>{props.decrementQuantity(id)}}
+                            onClick={()=>{decrementQuantity(id)}}
                         />
                         <span>{quantity}</span>
                         <AiOutlinePlusCircle 
                             style={{ cursor: 'pointer' }}
-                            onClick={()=>{props.incrementQuantity(id)}}
+                            onClick={()=>{incrementQuantity(id)}}
                         />
                     </ListGroup.Item>
                 </ListGroup>

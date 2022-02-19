@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useContext } from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { BsCart4 } from 'react-icons/bs';
+import { ShopContext } from '../context';
 
 const GoodsItem = (props) => {
 
@@ -8,17 +10,18 @@ const GoodsItem = (props) => {
         mainId,
         displayName,
         displayDescription,
-        displayType,
         price,
         granted
 
     } = props;
 
+    const {addToBasket} = useContext(ShopContext)
+
     // const [inCartQuantity, putCart] = useState(0)//пока выпиливаем.нужно менять структуру
 
     const buyHandler = () => {
         //  props.addToBasket([mainId,displayName,granted[0].images.full_background,price.finalPrice],displayDescription)
-         props.addToBasket({
+         addToBasket({
              descr: displayDescription,
              id: mainId,
              name: displayName,
@@ -57,7 +60,7 @@ const GoodsItem = (props) => {
                             
                             </Button>
                         {
-                            price.finalPrice != price.regularPrice ? 
+                            price.finalPrice !== price.regularPrice ? 
                                 (   
                                     <span >
                                         <strike>{price.regularPrice}₽</strike> 

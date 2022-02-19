@@ -23,15 +23,24 @@ export const ContextProvider = ({children}) => {
     value.handleBasketShow = () => {
         dispatch({type:'TOGGLE_BASKET'})
     }
+    
     value.addToBasket = (item) => {
         dispatch({type:'ADD_TO_BASKET', payload: item})
     }
+
     value.incrementQuantity = (itemId) => {
         dispatch({type:'INCREMENT_QUANTITY', payload:  {id: itemId}})
     }
+
     value.decrementQuantity = (itemId) => {
         dispatch({type:'DECREMENT_QUANTITY', payload:  {id: itemId}})
     }
+
+    value.setGoods = (data) => {
+        dispatch({type:'SET_GOODS', payload: data})
+    }
+
+
 
     return <ShopContext.Provider value={value}>
         {children}

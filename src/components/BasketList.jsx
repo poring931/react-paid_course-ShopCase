@@ -2,17 +2,17 @@ import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import BasketItem from './BasketItem';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { useContext } from 'react';
+import { ShopContext } from '../context';
 
 const BasketList = (props) => {
 
-    const {order = [], 
-              handleBasketShow=Function.prototype,
-              removeFromBasket=Function.prototype,
-          } = props;
+    const {order = [], handleBasketShow=Function.prototype, } = useContext(ShopContext);
 
     const totalPrice = order.reduce((sum, el)=>{
       return sum + el.price * el.quantity
     },0)
+
 
   return (
      <div className="modal_basket">
@@ -25,9 +25,6 @@ const BasketList = (props) => {
                 <BasketItem 
                   key={item.id} 
                   {...item} 
-                  removeFromBasket={removeFromBasket}
-                  incrementQuantity={props.incrementQuantity}
-                  decrementQuantity={props.decrementQuantity}  
                   
                 />
 
